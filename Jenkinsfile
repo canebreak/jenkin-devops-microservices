@@ -1,17 +1,27 @@
 pipeline {
 
 	//agent { docker { image 'maven:3.6.3'} }
-	agent { docker { image 'node:13.8'} }
+	//agent { docker { image 'node:13.8'} }
+	agent any
+	environment {
+		dockerHome = tool 'myDocker'
+		mavenHome = tool 'myMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
+	
 	stages {
 		stage("Build")
 		{
 			steps {
-				sh "node --version"
-				//sh "mvn --version"
-				echo "$env.BUILD_ID"
-				echo "$env.JOB_NAME"
-				echo "$env.BUILD_TAG"
-				echo "$env.BUILD_URL"
+				//sh "node --version"
+				sh "mvn --version"
+				sh "docker version"
+				
+				echo "BUILD ID - $env.BUILD_ID"
+				echo "JOB NAME - $env.JOB_NAME"
+				echo "BUILD TAG - $env.BUILD_TAG"
+				echo " BUILD URL -$env.BUILD_URL"
+
 			}
 		}
 		stage("Test")
