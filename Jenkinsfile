@@ -8,8 +8,10 @@ pipeline {
 			steps {
 				sh "node --version"
 				//sh "mvn --version"
-				echo "Shell script"
-				sh "ls"
+				echo "$env.BUILD_ID"
+				echo "$env.JOB_NAME"
+				echo "$env.BUILD_TAG"
+				echo "$env.BUILD_URL"
 			}
 		}
 		stage("Test")
