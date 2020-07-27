@@ -14,7 +14,7 @@ pipeline {
 				echo "$env.BUILD_URL"
 			}
 		}
-		stage("Blagoje")
+		stage("Test")
 		{
 			steps{
 				echo "Test"
