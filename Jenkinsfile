@@ -8,10 +8,10 @@ pipeline {
 			steps {
 				sh "node --version"
 				//sh "mvn --version"
-				echo "Build"
+				echo "Shell script"
+				sh "ls"
 			}
 		}
-
 		stage("Test")
 		{
 			steps{
