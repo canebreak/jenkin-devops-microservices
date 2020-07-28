@@ -13,7 +13,7 @@ pipeline {
 			steps {
 				//sh "node --version"
 				sh "mvn --version"
-				sh "docker version"
+				//sh "docker version"
 				
 				echo "BUILD ID - $env.BUILD_ID"
 				echo "JOB NAME - $env.JOB_NAME"
